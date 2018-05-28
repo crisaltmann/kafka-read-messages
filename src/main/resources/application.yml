@@ -1,0 +1,18 @@
+server:
+    port: ${port:8104}
+
+spring:
+    application:
+        name: kafka-read-messages
+        
+spring.cloud.stream.bindings.input:
+  destination: foobar
+  consumer:
+    headerMode: raw
+spring.cloud.stream.kafka.streams.binder:
+  brokers: localhost #192.168.99.100
+  zkNodes: localhost #192.168.99.100
+  configuration:
+    default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+    default.value.serde: org.apache.kafka.common.serialization.Serdes$BytesSerde
+    commit.interval.ms: 1000
